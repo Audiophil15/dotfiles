@@ -1,0 +1,45 @@
+##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
+##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
+##### PROCEED WITH CAUTION! #####
+
+! special colors
+*.foreground:  #afafaf
+*.background:  #000000
+*.cursorColor:  #badac9
+! black
+*.color0:      #000000
+*.color8:      #202020
+! red
+*.color1:      #a80000
+*.color9:      #ce0000
+! green
+*.color2:      #395944
+*.color10:     #37c574
+! yellow
+*.color3:      #c9cc00
+*.color11:     #eaff00
+! blue
+*.color4:      #0047a3
+*.color12:     #5e73ff
+! magenta
+*.color5:      #7d0096
+*.color13:     #982aff
+! cyan
+*.color6:      #1874cb
+*.color14:     #46afff
+! white
+*.color7:      #a0a0a0
+*.color15:     #ffffff
+
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+
+URxvt*transparent:       true
+URxvt*shading:       25
+
+URxvt.font: xft:Ubuntu Mono:pixelsize=14
+URxvt.letterSpace: 0
+
+*antialias:  true
+*autohint:   false
+
