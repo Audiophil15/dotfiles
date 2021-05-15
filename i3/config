@@ -15,7 +15,6 @@ set $mod Mod4
 #exec_always --no-startup-id picom --experimental-backends --backend glx
 exec_always --no-startup-id ~/.config/i3/polybar.sh
 #exec --no-startup-id nm-applet
-exec --no-startup-id ~/.config/i3/findscard.sh
 exec --no-startup-id volnoti
 exec --no-startup-id ~/.config/i3/setrdbg.sh
 exec --no-startup-id synclient VertScrollDelta=-75 HorizScrollDelta=-75
@@ -68,6 +67,9 @@ bindsym $mod+d exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# Launch cmus
+bindsym $mod+C exec urxvt -e cmus
 
 # change focus
 bindsym $mod+j focus left
@@ -232,5 +234,3 @@ bindsym $mod+r mode "resize"
 		
 #	}
 #}
-
-set $cardno 0

@@ -1,4 +1,4 @@
-set aaa_mode=all
+set aaa_mode=album
 set altformat_current= %F 
 set altformat_playlist= %f%= %d 
 set altformat_title=%f
@@ -74,7 +74,7 @@ set lib_sort=albumartist date album discnumber tracknumber title filename play_c
 set mixer.alsa.channel=PCM
 set mixer.alsa.device=default
 set mixer.pulse.restore_volume=1
-set mouse=false
+set mouse=true
 set mpris=false
 set output_plugin=pulse
 set passwd=
@@ -95,7 +95,7 @@ set show_current_bitrate=false
 set show_hidden=false
 set show_playback_position=true
 set show_remaining_time=false
-set shuffle=true
+set shuffle=false
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
@@ -134,7 +134,7 @@ bind common F push filter
 bind common G win-bottom
 bind common I echo {}
 bind common L push live-filter 
-bind common M toggle play_library
+bind common M toggle repeat_current
 bind common N search-prev
 bind common P win-mv-before
 bind common Q quit -i
@@ -146,7 +146,7 @@ bind common ^C echo Type :quit<enter> to exit cmus.
 bind common ^E win-scroll-down
 bind common ^F win-page-down
 bind common ^L refresh
-bind common ^R toggle repeat_current
+bind common ^O toggle play_library
 bind common ^Y win-scroll-up
 bind common a win-add-l
 bind common b player-next 
