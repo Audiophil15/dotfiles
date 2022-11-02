@@ -1,0 +1,473 @@
+[colors]
+
+# Palette Green
+base = #9045a085
+green1 = #a085b79f
+green2 = #a050a888
+green3 = #a0408070
+green4 = #a0306560
+green5 = #e0205550
+
+;c2 = #70209888
+;c3 = #70108070
+
+# Palette Gray
+;base = #00000000
+;c1 = #70c0c0c0
+;c2 = #70a0a0a0
+;c3 = #70808080
+
+# Palette Pastel
+;base = #00000000
+;ci3 = #51907E
+;cmus = #B1D86E
+;c1 = #78020D
+;c2 = #60062B
+;c3 = #691A59
+
+# Palette Yellow/Sky painting
+blue1 = #6B5199
+blue2 = #7569C7
+;orange1 = #eeb991
+orange1 = #Db803b
+yellow1 = #E0BD4D
+yellow2 = #DCD37E
+
+red = #901010
+blue = #101090
+green = #109010
+yellow = #909010
+magenta = #901090
+lightgreen = #70d090
+fadedwhite = #70ffffff
+white = #fff
+gray = #666
+darkgray = #282828
+black = #000
+transparent = #00000000
+
+c1 = ${colors.yellow2}
+c2 = ${colors.yellow1}
+c3 = ${colors.orange1}
+c4 = ${colors.blue1}
+c5 = ${colors.blue2}
+
+cmus = ${colors.c2}
+date = ${colors.c3}
+
+net = ${colors.c1}
+filesys = ${colors.c2}
+cpu = ${colors.c3}
+bat = ${colors.c4}
+powermenu = ${colors.c5}
+
+
+[bar/bar]
+bottom = true
+override-redirect = true
+wm-restack = i3
+
+# monitor = VGA-0
+
+background = ${colors.transparent}
+foreground = ${colors.white}
+#background-0 = #ffffffff
+#background-1 = #2570c0a0
+#background-2 = #9020b090
+
+locale = en_GB.UTF-8
+font-0 = Ubuntu:style=Bold:size=10;2
+font-1 = DejaVuSans:style=Book:size=10;2
+font-2 = DejaVuSans:style=Bold:size=10;2
+font-3 = DejaVu Math TeX Gyre:style=Regular:size=10;2
+font-4 = Noto Music:style=Regular:size=13;2
+font-5 = Font Awesome 5 Free:style=Regular:size=10;2
+font-6 = Font Awesome 5 Free:style=Solid:size=10;2
+
+radius = 4
+dim-value = 1.0
+
+line-size = 2
+
+width = 95%
+height = 20
+
+offset-x = 2.5%
+offset-y = 5
+
+padding-left = 0
+padding-right = 0
+
+; dpi-x = 0
+; dpi-y = 0
+
+tray-position = right
+tray-background = ${colors.c5}
+tray-padding = 0
+; tray-offset-x = 0
+; tray-detached = true
+
+modules-left = i3 cmusprev cmus cmusnext
+modules-center = clearsep darksep date darksep clearsep
+modules-right = network filesystem cpu battery powermenu
+; module-margin = 3
+
+commonpadding = 4
+
+### Just separators
+[module/clearsep]
+type = custom/text
+content = "   "
+content-background=${colors.net}
+
+[module/darksep]
+type = custom/text
+content = "   "
+content-background=${colors.filesys}
+
+### "Basic" modules
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 5
+
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging =   %percentage%%
+label-discharging = %time% %percentage%%
+label-full = Full
+
+format-charging-background = ${colors.bat}
+format-discharging-background = ${colors.bat}
+format-charging-padding = ${bar/bar.commonpadding}
+format-discharging-padding = ${bar/bar.commonpadding}
+format-full-background = ${colors.bat}
+format-full-padding = ${bar/bar.commonpadding}
+
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 1250
+
+bar-capacity-width = 10
+; bar-capacity-format = %fill%%empty%
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = -
+; bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+; bar-capacity-fill-font = 3
+; bar-capacity-empty = █
+bar-capacity-empty = -
+; bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label> <ramp-coreload>
+format-background = ${colors.cpu}
+label = CPU %percentage%%
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+; format-padding = 2
+format-padding = ${bar/bar.commonpadding}
+
+[module/date]
+type = internal/date
+date = %d/%m/%y
+time = %H:%M:%S
+label = %time% - %date%
+;format-foreground = #fefefe
+format-background = ${colors.date}
+format-padding = ${bar/bar.commonpadding}
+
+[module/filesystem]
+type = internal/fs
+interval = 30
+mount-0 = /
+label-mounted = %mountpoint%  %free%/%total%
+; format-mounted-padding = 2
+format-mounted-padding = ${bar/bar.commonpadding}
+format-mounted-foreground = ${colors.darkgray}
+format-mounted-background = ${colors.filesys}
+
+[module/network]
+type = internal/network
+interface = ${env:DEFAULT_NETWORK_INTERFACE:wlp0s20f3}
+#enp12s0
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-padding = ${bar/bar.commonpadding}
+format-disconnected-padding = ${bar/bar.commonpadding}
+
+format-connected-foreground = ${colors.darkgray}
+format-disconnected-foreground = ${colors.darkgray}
+format-connected-background = ${colors.net}
+format-disconnected-background = ${colors.net}
+
+label-connected = %essid% (%local_ip%) - %downspeed:9%/%upspeed:9%
+label-disconnected = not connected
+
+#[module/wireless-network]
+#inherit = module/wired-network
+#interface = wlp0s20f3
+
+
+### Cmus/Windows Managers/Polybar
+
+[module/cmus]
+type = custom/script
+
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+
+click-right = xdotool search --name cmus windowactivate
+click-left = cmus-remote --pause
+
+format = <label>
+; format-underline = ${colors.white}
+; label-font = 4
+label = %output%
+format-foreground = ${colors.black}
+format-background = ${colors.cmus}
+format-padding = ${bar/bar.commonpadding}
+
+[module/cmusprev]
+type = custom/script
+
+exec = echo ""
+exec-if = pgrep -x cmus
+click-left = cmus-remote --prev
+format = <label>
+format-foreground = ${colors.black}
+format-background = ${colors.cmus}
+format-padding = ${bar/bar.commonpadding}
+format-offset = 25
+label = %output%
+interval = 1
+
+[module/cmusnext]
+type = custom/script
+
+exec = echo ""
+exec-if = pgrep -x cmus
+click-left = cmus-remote --next
+format = <label>
+format-foreground = ${colors.black}
+format-background = ${colors.cmus}
+format-padding = ${bar/bar.commonpadding}
+label = %output%
+interval = 1
+
+[module/herbstluftwm]
+type = custom/script
+
+exec-if = ps -C herbstluftwm >/dev/null 2>&1
+exec = MONITOR=eDP-1 ~/.config/polybar/herbstluftwm.sh
+
+tail = true
+
+[module/i3]
+type = internal/i3
+
+index-sort = true
+format-padding = ${bar/bar.commonpadding}
+format-background = ${colors.c3}
+; format-padding = 2
+
+strip-wsnumbers = true
+
+;label-focused-font = 4
+;label-unfocused-font = 4
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %name%
+label-focused-foreground = ${colors.white}
+#label-focused-background = ${colors.lightgreen}
+label-focused-underline = #ffffff
+label-focused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused-foreground = ${colors.darkgray}
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %name%
+; label-visible-underline = #ffffff
+label-visible-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %name%
+; label-urgent-foreground = #b0e050
+;label-urgent-underline = #98d0b0
+label-urgent-underline = #e0d050
+; label-urgent-background = #b0e080
+label-urgent-padding = 2
+
+; Separator in between workspaces
+label-separator = " "
+label-separator-padding = 0
+label-separator-foreground = #ffffff
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+label-open-padding = ${bar/bar.commonpadding}
+label-close-padding = ${bar/bar.commonpadding}
+
+label-open = ""
+label-open-background = ${colors.powermenu}
+#label-open-foreground = ${colors.red}
+label-close = " "
+label-close-background = ${colors.powermenu}
+#label-close-foreground = ${colors.foreground}
+label-separator = "  "
+label-separator-background = ${colors.powermenu}
+#label-separator-foreground = ${colors.foreground}
+
+# Serious & monochromatic
+
+menu-0-0-background = ${colors.powermenu}
+#menu-0-0-foreground = ${colors.foreground}
+menu-0-1-background = ${colors.powermenu}
+#menu-0-1-foreground = ${colors.foreground}
+menu-0-2-background = ${colors.powermenu}
+#menu-0-2-foreground = ${colors.foreground}
+menu-0-3-background = ${colors.powermenu}
+#menu-0-3-foreground = ${colors.foreground}
+menu-0-4-background = ${colors.powermenu}
+#menu-0-4-foreground = ${colors.foreground}
+
+# Playful & polychromatic
+
+#menu-0-0-background = ${colors.background}
+#menu-0-0-foreground = ${colors.red}
+#menu-0-1-background = ${colors.background}
+#menu-0-1-foreground = ${colors.yellow}
+#menu-0-2-background = ${colors.background}
+#menu-0-2-foreground = ${colors.blue}
+#menu-0-3-background = ${colors.background}
+#menu-0-3-foreground = ${colors.green}
+#menu-0-4-background = ${colors.background}
+#menu-0-4-foreground = ${colors.magenta}
+
+#menu-0-0 = "  Shutdown"
+#menu-0-0-exec = amixer set Master mute & poweroff &
+#menu-0-1 = "  Reboot"
+#menu-0-1-exec = amixer set Master mute & reboot &
+#menu-0-2 = "  Logout"
+#menu-0-2-exec = amixer set Master mute & i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' &
+#menu-0-3 = "  Sleep "
+#menu-0-3-exec = amixer set Master mute & zzz &
+#menu-0-4 = " Lock "
+#menu-0-4-exec = ~/.config/rofi/scripts/i3lock.sh &
+
+menu-0-0 = "       Shutdown"
+menu-0-0-exec = amixer set Master mute & sudo poweroff &
+menu-0-1 = " Reboot"
+menu-0-1-exec = amixer set Master mute & sudo reboot &
+menu-0-2 = " Logout"
+menu-0-2-exec = amixer set Master mute & i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' &
+menu-0-3 = " Sleep "
+menu-0-3-exec = amixer set Master mute & sudo zzz &
+menu-0-4 = " Lock "
+menu-0-4-exec = env XSECURELOCK_NO_COMPOSITE=1 XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 xsecurelock &
+				
+
+#### Unused ####
+[bar/cmusbar]
+
+bottom = true
+override-redirect = true
+wm-restack = i3
+background = ${colors.transparent}
+foreground = ${colors.white}
+
+locale = fr_FR.UTF-8
+font-0 = Ubuntu:style=Bold:size=10;2
+font-1 = DejaVuSans:style=Book:size=10;2
+font-2 = DejaVuSans:style=Bold:size=10;2
+font-3 = DejaVu Math TeX Gyre:style=Regular:size=10;2
+font-4 = Noto Music:style=Regular:size=13;2
+font-5 = Font Awesome 5 Free:style=Regular:size=10;2
+font-6 = Font Awesome 5 Free:style=Solid:size=10;2
+
+radius = 4
+dim-value = 1.0
+
+line-size = 2
+
+width = 100%
+height = 20
+
+offset-x = 0
+offset-y = 5
+
+padding-left = 0
+padding-right = 0
+
+; dpi-x = 0
+; dpi-y = 0
+
+tray-position = none
+; tray-offset-x = 0
+; tray-detached = true
+
+commonpadding = 4
+
+modules-center = cmusprev cmus cmusnext

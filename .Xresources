@@ -1,0 +1,40 @@
+#include ".config/urxvt/defaultcolors"
+!! #include ".config/rofi/Xrofi"
+
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
+
+URxvt.lineSpace: 0
+URxvt.saveLines: 500000
+!! Common Keybinds for Navigations
+!! URxvt.keysym.Shift-Up: command:\033]720;1\007
+!! URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+URxvt.keysym.Meta-Left: \033[1;3D
+URxvt.keysym.Meta-Right: \033[1;3C
+URxvt.keysym.Meta-u: \033u
+
+URxvt.keysym.C-BackSpace: \033[33~
+!! URxvt.keysym.Shift-Control-Return: command: urxvt & ^[CR
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,keyboard-select
+!! url-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+
+!! URxvt.keysym.Meta-c: perl:clipboard:copy
+!! URxvt.keysym.Meta-v: perl:clipboard:paste
+URxvt.keysym.Meta-c: eval:selection_to_clipboard
+URxvt.keysym.Meta-v: eval:paste_clipboard
+!! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+!! URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! URxvt.keysym.M-s: perl:keyboard-select:search
+!! URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1

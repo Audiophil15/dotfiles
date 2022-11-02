@@ -1,0 +1,50 @@
+
+! special colors
+*.foreground:  #e0e0e0
+*.background:  #000000
+*.cursorColor:  #badac9
+! black
+!*.color0:      #081C15
+*.color0:      #151515
+*.color8:      #57605b
+! red
+*.color1:      #a80000
+*.color9:      #ce0000
+! green
+*.color2:      #597954
+*.color10:     #37c574
+!*.color10:     #9cd0b0
+!*.color2:      #40916C
+!*.color10:     #74C69D
+! yellow
+*.color3:      #c9cc00
+*.color11:     #eaff00
+! blue
+*.color4:      #0047a3
+*.color12:     #5e73ff
+!*.color4:      #B7E4C7
+!*.color12:     #D8F3DC
+! magenta
+*.color5:      #9d00b0
+*.color13:     #982aff
+! cyan
+*.color6:      #2d90d5
+*.color14:     #46afff
+! white
+*.color7:      #cfcfcf
+*.color15:     #ffffff
+
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+
+URxvt*transparent:       false
+URxvt*shading:       30
+
+URxvt.font: xft:Ubuntu Mono:pixelsize=14
+!! URxvt.font: xft:Envy Code R:pixelsize=14
+!! URxvt.font: xft:Seagram tfb:pixelsize=17
+URxvt.letterSpace: 0
+
+*antialias:  true
+*autohint:   false
+
