@@ -1,73 +1,28 @@
-[colors]
 
-# Palette Green
-base = #9045a085
-green1 = #a085b79f
-green2 = #a050a888
-green3 = #a0408070
-green4 = #a0306560
-green5 = #e0205550
+include-file = ~/.config/polybar/palettes
 
-;c2 = #70209888
-;c3 = #70108070
-
-# Palette Gray
-;base = #00000000
-;c1 = #70c0c0c0
-;c2 = #70a0a0a0
-;c3 = #70808080
-
-# Palette Pastel
-;base = #00000000
-;ci3 = #51907E
-;cmus = #B1D86E
-;c1 = #78020D
-;c2 = #60062B
-;c3 = #691A59
-
-# Palette Yellow/Sky painting
-blue1 = #6B5199
-blue2 = #7569C7
-;orange1 = #eeb991
-orange1 = #Db803b
-yellow1 = #E0BD4D
-yellow2 = #DCD37E
-
-red = #901010
-blue = #101090
-green = #109010
-yellow = #909010
-magenta = #901090
-lightgreen = #70d090
-fadedwhite = #70ffffff
-white = #fff
-gray = #666
-darkgray = #282828
-black = #000
-transparent = #00000000
-
-c1 = ${colors.yellow2}
-c2 = ${colors.yellow1}
-c3 = ${colors.orange1}
-c4 = ${colors.blue1}
-c5 = ${colors.blue2}
-
+##############################
+##   Modules backgrounds
+#
 cmus = ${colors.c2}
-date = ${colors.c3}
 
-net = ${colors.c1}
+date = ${colors.c1}
+
+net = ${colors.c3}
 filesys = ${colors.c2}
-cpu = ${colors.c3}
+cpu = ${colors.c1}
+
 bat = ${colors.c4}
 powermenu = ${colors.c5}
 
+##############################
+##   Actual Bar
+#
 
 [bar/bar]
 bottom = true
 override-redirect = true
 wm-restack = i3
-
-# monitor = VGA-0
 
 background = ${colors.transparent}
 foreground = ${colors.white}
@@ -114,7 +69,9 @@ modules-right = network filesystem cpu battery powermenu
 
 commonpadding = 4
 
-### Just separators
+##############################
+##   Just separators
+#
 [module/clearsep]
 type = custom/text
 content = "   "
@@ -125,7 +82,9 @@ type = custom/text
 content = "   "
 content-background=${colors.filesys}
 
-### "Basic" modules
+##############################
+##   "Basic" modules
+#
 [module/battery]
 type = internal/battery
 
@@ -213,7 +172,7 @@ mount-0 = /
 label-mounted = %mountpoint%  %free%/%total%
 ; format-mounted-padding = 2
 format-mounted-padding = ${bar/bar.commonpadding}
-format-mounted-foreground = ${colors.darkgray}
+format-mounted-foreground = ${colors.white}
 format-mounted-background = ${colors.filesys}
 
 [module/network]
@@ -225,8 +184,9 @@ format-disconnected = <label-disconnected>
 format-connected-padding = ${bar/bar.commonpadding}
 format-disconnected-padding = ${bar/bar.commonpadding}
 
-format-connected-foreground = ${colors.darkgray}
-format-disconnected-foreground = ${colors.darkgray}
+foreground = ${colors.white}
+format-connected-foreground = ${module/network.foreground}
+format-disconnected-foreground = ${module/network.foreground}
 format-connected-background = ${colors.net}
 format-disconnected-background = ${colors.net}
 
@@ -238,7 +198,9 @@ label-disconnected = not connected
 #interface = wlp0s20f3
 
 
-### Cmus/Windows Managers/Polybar
+##############################
+##   Cmus/Windows Managers/Polybar
+#
 
 [module/cmus]
 type = custom/script
@@ -427,7 +389,7 @@ menu-0-3 = " Sleep "
 menu-0-3-exec = amixer set Master mute & sudo zzz &
 menu-0-4 = " Lock "
 menu-0-4-exec = env XSECURELOCK_NO_COMPOSITE=1 XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 xsecurelock &
-				
+
 
 #### Unused ####
 [bar/cmusbar]

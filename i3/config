@@ -95,7 +95,7 @@ bindsym Mod1+F4 kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun  -display-drun "" -disable-history
 # powermenu
-bindsym $mod+Control+P exec rofi -show power-menu -modi power-menu:~/Sources/rofi-power-menu/rofi-power-menu -config ~/.config/rofi/powermenu.rasi
+bindsym $mod+P exec rofi -show power-menu -modi power-menu:~/Sources/rofi-power-menu/rofi-power-menu -config ~/.config/rofi/powermenu.rasi
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that

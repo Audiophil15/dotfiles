@@ -1,0 +1,67 @@
+[colors]
+
+##############################
+##   Basic colours
+#
+
+red = #901010
+blue = #101090
+green = #109010
+yellow = #909010
+magenta = #901090
+lightgreen = #70d090
+fadedwhite = #70ffffff
+white = #fff
+gray = #666
+darkgray = #282828
+black = #000
+transparent = #00000000
+
+##############################
+##   Specific palettes
+#
+
+# Same colours should be listed from darker to lighter
+
+### Palette Green ###
+#base = #9045a085
+#green1 = #a085b79f
+#green2 = #a050a888
+#green3 = #a0408070
+#green4 = #a0306560
+#green5 = #e0205550
+
+### Palette Gray ###
+#base = #00000000
+#gray1 = #70808080
+#gray2 = #70a0a0a0
+#gray3 = #70c0c0c0
+
+### Palette Yellow/Sky painting ###
+#yellow1 = #E0BD4D
+#yellow2 = #DCD37E
+#orange1 = #Db803b
+#blue1 = #6B5199
+#blue2 = #7569C7
+
+### Palette Neon city (green/red) ###
+# light green
+# medium green
+# dark green
+# orange 1
+# orange 2
+# Rich Black
+green1 = #702A624B
+green2 = #70307760
+green3 = #70289166
+orange1 = #FFB570
+orange2 = #F9604A
+richblack1 = #1F2F3B
+
+
+# Palette Neon city (green/red)
+c1 = ${colors.green1}
+c2 = ${colors.green2}
+c3 = ${colors.green3}
+c4 = ${colors.orange2}
+c5 = ${colors.richblack1}
